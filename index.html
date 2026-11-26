@@ -34,15 +34,15 @@ nav ul a:hover{color:var(--text)}
 .btn.ghost{background:rgba(255,255,255,.1);border-color:transparent;color:var(--text)}
 
 /* hero: a game launcher */
-.hero{position:relative;min-height:max(100svh,760px);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.hero{position:relative;display:flex;flex-direction:column;isolation:isolate}
 .bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
 .bg div{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity .8s,transform 7s ease-out}
 .bg div.on{opacity:1;transform:scale(1)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,12,30,.96) 0%,rgba(8,12,30,.82) 34%,rgba(8,12,30,.15) 75%),linear-gradient(0deg,var(--bg) 0%,rgba(11,16,36,.7) 22%,transparent 55%)}
-.hero .main{padding-top:110px;padding-bottom:30px;width:100%}
+.hero .main{padding-top:84px;padding-bottom:22px;width:100%}
 h1{font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:.01em;color:var(--text);max-width:600px}
 .role{color:var(--soft);margin-top:8px;font-size:18px}
-.now{margin-top:40px;min-height:240px;max-width:600px;border-left:4px solid var(--cyan);padding-left:20px}
+.now{margin-top:20px;min-height:290px;max-width:600px;border-left:4px solid var(--cyan);padding-left:20px}
 .now h2{font-size:clamp(34px,4.6vw,60px)}
 .now .facts{color:var(--cyan);font-weight:600;margin:8px 0 6px}
 .now p{color:#d3daf8}
@@ -159,6 +159,7 @@ footer a:not(.btn){color:#fff}
   section{padding:68px 0}
   .hero::after{background:linear-gradient(0deg,var(--bg) 12%,rgba(8,12,30,.86) 62%,rgba(8,12,30,.35))}
   .note{right:12px;top:76px}
+  .now{min-height:270px}
   .bg div{background-position:72% center}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
@@ -174,14 +175,13 @@ footer a:not(.btn){color:#fff}
 dialog.portrait .big{aspect-ratio:auto;height:min(68vh,707px)}
 @media (max-width:1000px){.bg .portrait::after{right:2%}}
 @media (max-width:660px){
-  .bg .portrait::after{top:76px;bottom:auto;height:44vh;left:0;right:0;width:auto;background-position:center top}
-  .hero.portrait .main{padding-top:calc(44vh + 96px)}
+  .bg .portrait::before{inset:0;filter:none;background-position:center top}
+  .bg .portrait::after{display:none}
   .poster.full.portrait{aspect-ratio:2/3}
   .poster.portrait .key{top:0;right:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top}
   .poster.portrait .txt{max-width:none;z-index:1;background:linear-gradient(transparent,rgba(7,10,28,.95));padding-top:60px}
 }
 .hero.portrait::after{background:linear-gradient(90deg,rgba(8,12,30,.92) 0%,rgba(8,12,30,.7) 34%,transparent 62%),linear-gradient(0deg,var(--bg) 0%,transparent 24%)}
-@media (max-width:660px){.hero.portrait::after{background:linear-gradient(0deg,var(--bg) 40%,rgba(11,16,36,.45) 52%,transparent 64%)}}
 .feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:48px;align-items:center;margin-bottom:56px}
 .feature.tower .visual{order:2}
 .feature.tower{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
@@ -399,7 +399,7 @@ destiny.filter(g=>g[0]!=='lost').forEach(g=>{ /* Lost World has its own feature 
 });
 
 /* hero launcher */
-const featured = [destiny[0],destiny[1],destiny[2],destiny[3],destiny[4],
+const featured = [destiny[1],destiny[2],destiny[0],destiny[3],destiny[4],
   ['tower','Threnvale','My own tower defense','Personal project, in progress','A classic top-down tower defense game with a story told in chapters. Place towers to hold off enemy waves.',[]]];
 const bg = document.getElementById('bg'), rail = document.getElementById('rail'), now = document.getElementById('now'), hero = document.getElementById('top');
 let cur = 0, timer;
