@@ -3,97 +3,208 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
 <title>Nitin Menon | Unity game developer and Team Lead</title>
 <meta name="description" content="Games by Nitin Menon, Unity game developer and Team Lead in Hyderabad: racing, sports, RPG, VR and kids' learning titles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#14304a;--deep:#0c2033;--mist:#e9f0f3;--paper:#fbfcfd;--amber:#f2a93b;--teal:#0f7283;--ink:#1d2733;--soft:#53667a}
+:root{--bg:#0b1024;--panel:#141b3a;--panel2:#1b2450;--text:#eef1ff;--soft:#a9b4dc;--gold:#ffb627;--cyan:#3fe0ee;--rose:#ff5c8a;--line:#2b366b}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font:18px/1.55 'Source Sans 3','Segoe UI',sans-serif}
-h1,h2,h3,.disp{font-family:'Chakra Petch',Bahnschrift,sans-serif;line-height:1.12}
-a{color:var(--teal);text-underline-offset:3px}
-:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--text);font:17px/1.6 Barlow,'Segoe UI',sans-serif;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Barlow Condensed',Bahnschrift,sans-serif;line-height:1;font-weight:800}
+a{color:var(--cyan);text-underline-offset:3px}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
 
-.top{background:var(--deep);color:#e8f1f7}
-.top a{color:inherit}
-nav.wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:20px;padding-bottom:20px}
-nav .me{font-size:20px;font-weight:700;text-decoration:none}
-nav ul{display:flex;gap:8px 20px;list-style:none;flex-wrap:wrap}
-nav ul a{text-decoration:none}
-nav ul a:hover{text-decoration:underline}
-.intro{padding-top:36px;padding-bottom:32px}
-h1{font-size:clamp(34px,5.4vw,62px);max-width:17ch}
-.intro p{margin-top:16px;max-width:62ch;color:#bcd0df;font-size:20px}
+nav{position:fixed;inset:0 0 auto;z-index:20;background:rgba(11,16,36,.55);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);transition:background .25s}
+nav.solid{background:rgba(11,16,36,.94)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+nav .me{font-size:26px;color:var(--text);text-decoration:none;white-space:nowrap}
+nav ul{display:flex;gap:28px;list-style:none}
+nav ul a{color:var(--soft);text-decoration:none;font-weight:600}
+nav ul a:hover{color:var(--text)}
 
-/* the game selector: the one showpiece */
-.select{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:20px;padding-bottom:48px}
-.stage{background:var(--navy);border:2px solid #2b5373;display:flex;flex-direction:column;min-width:0}
-.stage svg{display:block;width:100%;aspect-ratio:16/8}
-.info{padding:20px 24px 24px;min-height:230px}
-.info h2{font-size:32px}
-.facts{color:var(--amber);font-weight:600;margin:6px 0 10px}
-.info p{max-width:62ch}
-.info .links{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;background:var(--amber);color:#2a1b00!important;font-weight:600;text-decoration:none;padding:9px 16px;border:0}
-.slots{display:flex;flex-direction:column;gap:8px}
-.slots button{font:700 17px/1.2 'Chakra Petch',Bahnschrift,sans-serif;text-align:left;color:#e8f1f7;background:transparent;border:2px solid #2b5373;padding:12px 14px;cursor:pointer}
-.slots button small{display:block;font:400 15px/1.3 'Source Sans 3',sans-serif;color:#9db7ca;margin-top:2px}
-.slots button:hover{border-color:var(--amber)}
-.slots button[aria-selected=true]{background:var(--amber);border-color:var(--amber);color:#1f1400}
-.slots button[aria-selected=true] small{color:#3d2a05}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;font-weight:600;text-decoration:none;border:2px solid var(--gold);background:var(--gold);color:#231600;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);transition:transform .15s,filter .15s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.ghost{background:rgba(255,255,255,.1);border-color:transparent;color:var(--text)}
 
-section{padding:64px 0}
-section.alt{background:var(--mist)}
-h2.head{font-size:34px;color:var(--navy);margin-bottom:8px}
-.lead{max-width:66ch;color:var(--soft);margin-bottom:28px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.filters button{font:600 16px 'Source Sans 3',sans-serif;padding:7px 15px;background:transparent;color:var(--navy);border:2px solid var(--navy);cursor:pointer}
-.filters button[aria-pressed=true]{background:var(--navy);color:#fff}
-.games{list-style:none}
-.games li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:8px 32px;padding:18px 0;border-top:1px solid #c8d6df}
-.games h3{font-size:21px;color:var(--navy)}
-.games h3+span{display:block;color:var(--soft);font-size:16px;margin-top:3px}
-.games p a{margin-right:14px;white-space:nowrap}
+/* hero: a game launcher */
+.hero{position:relative;min-height:max(100svh,760px);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.bg div{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity .8s,transform 7s ease-out}
+.bg div.on{opacity:1;transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,12,30,.96) 0%,rgba(8,12,30,.82) 34%,rgba(8,12,30,.15) 75%),linear-gradient(0deg,var(--bg) 0%,rgba(11,16,36,.7) 22%,transparent 55%)}
+.hero .main{padding-top:110px;padding-bottom:30px;width:100%}
+h1{font-size:clamp(72px,12vw,168px);text-transform:uppercase;letter-spacing:-.01em;background:linear-gradient(180deg,#fff 35%,#8fa4ff);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.04em}
+.role{font-size:clamp(22px,2.6vw,32px);color:var(--gold);margin-top:4px}
+.now{margin-top:28px;min-height:218px;max-width:560px;border-left:4px solid var(--cyan);padding-left:20px}
+.now h2{font-size:clamp(30px,3.4vw,44px)}
+.now .facts{color:var(--cyan);font-weight:600;margin:8px 0 6px}
+.now p{color:#d3daf8}
+.now .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.note{position:absolute;right:28px;top:86px;font-size:13px;color:var(--soft);background:rgba(8,12,30,.7);padding:4px 10px}
+.rail{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;padding-bottom:30px;width:100%}
+.rail button{position:relative;border:0;background:var(--panel) center/cover;aspect-ratio:16/9;text-align:left;overflow:hidden;opacity:.62;transition:opacity .2s,transform .2s}
+.rail button:hover{opacity:1;transform:translateY(-4px)}
+.rail button[aria-pressed=true]{opacity:1;transform:translateY(-8px);box-shadow:0 0 0 3px var(--gold),0 14px 34px rgba(255,182,39,.35)}
+.rail span{position:absolute;inset:auto 0 0;padding:22px 10px 7px;background:linear-gradient(transparent,rgba(5,8,22,.95));font:700 17px/1.05 'Barlow Condensed',Bahnschrift,sans-serif}
 
-.videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px 22px}
-.videos figure>a{display:block;background:var(--navy);aspect-ratio:16/9;overflow:hidden}
-.videos img{width:100%;height:100%;object-fit:cover;display:block}
-.videos figcaption{margin-top:10px}
-.videos h3{font-size:19px;color:var(--navy)}
+.stats{background:linear-gradient(95deg,#3b2bb5,#1b6fc2 55%,#0e9aa7)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding-top:34px;padding-bottom:34px;gap:20px;text-align:center}
+.stats b{display:block;font:800 clamp(44px,5.6vw,76px)/1 'Barlow Condensed',Bahnschrift,sans-serif}
+.stats span{color:#e3ecff;font-weight:500}
 
-.job{display:grid;grid-template-columns:190px minmax(0,1fr);gap:6px 32px;padding:22px 0;border-top:1px solid #c8d6df}
-.job time{color:var(--soft);font-weight:600}
-.job h3{font-size:22px;color:var(--navy)}
-.job p{max-width:70ch}
+section{padding:96px 0;position:relative}
+h2.head{font-size:clamp(48px,6.4vw,84px);text-transform:uppercase}
+.lead{max-width:60ch;color:var(--soft);margin:10px 0 40px;font-size:19px}
+.glow{background:radial-gradient(900px 500px at 85% 0%,rgba(88,70,255,.22),transparent 70%),radial-gradient(700px 500px at 0% 100%,rgba(63,224,238,.12),transparent 70%)}
 
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px 40px}
-.cols h3{font-size:19px;color:var(--navy);margin-bottom:6px}
+.posters{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.poster{grid-column:span 2;position:relative;aspect-ratio:4/3;border:0;background:var(--panel);overflow:hidden;text-align:left;isolation:isolate}
+.poster.wide{grid-column:span 3;aspect-ratio:16/9}
+.poster.full{grid-column:1/-1;aspect-ratio:24/9}
+.poster .art{position:absolute;inset:0;z-index:-1;background:center/cover;transition:transform .5s}
+.poster::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(transparent 30%,rgba(7,10,28,.96))}
+.poster:hover .art,.poster:focus-visible .art{transform:scale(1.08)}
+.poster .txt{position:absolute;inset:auto 0 0;padding:18px 20px}
+.poster h3{font-size:30px}
+.poster.full h3{font-size:clamp(32px,4.6vw,58px)}
+.poster p{color:#cfd8ff;font-size:15px;margin-top:4px}
+.badge{position:absolute;top:14px;left:14px;background:var(--gold);color:#231600;font-weight:600;font-size:14px;padding:3px 11px}
+.badge.c{background:var(--cyan);color:#04252a}
+.concept{position:absolute;top:8px;right:8px;z-index:1;font:600 12px/1.4 Barlow,sans-serif;font-style:normal;color:#fff;background:rgba(5,8,22,.82);padding:2px 8px}
 
-footer{background:var(--deep);color:#e8f1f7;padding:56px 0}
-footer a{color:#fff}
-footer h2{font-size:34px;margin-bottom:12px}
-.who{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
-.who img{width:132px;height:132px;border-radius:50%;border:3px solid var(--amber)}
-.who ul{list-style:none;margin-bottom:16px}
+dialog{margin:auto;width:min(960px,94vw);max-height:90vh;background:var(--panel);color:var(--text);border:1px solid var(--line);overflow:auto}
+dialog::backdrop{background:rgba(4,6,18,.85);backdrop-filter:blur(6px)}
+dialog .big{width:100%;aspect-ratio:16/9;object-fit:contain;background:#05081a}
+dialog .thumbs{display:flex;gap:8px;padding:10px 24px 0}
+dialog .thumbs button{border:2px solid transparent;background:none;padding:0;width:120px}
+dialog .thumbs button[aria-pressed=true]{border-color:var(--gold)}
+dialog .body{padding:20px 24px 28px}
+dialog h3{font-size:40px;margin-bottom:6px}
+dialog .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.close{position:sticky;top:10px;float:right;margin:10px 10px -52px 0;z-index:2;width:42px;height:42px;border:0;background:rgba(5,8,22,.85);font-size:24px}
 
-@media (max-width:820px){
-  .select{grid-template-columns:minmax(0,1fr)}
-  .slots{display:grid;grid-template-columns:1fr 1fr;order:-1}
-  .games li,.job{grid-template-columns:minmax(0,1fr)}
-  .info{min-height:0}
-  .videos{grid-template-columns:minmax(0,1fr)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(270px,100%),1fr));gap:18px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{background:var(--panel);border:1px solid var(--line);padding:9px 20px;font-weight:600}
+.filters button[aria-pressed=true]{background:var(--cyan);border-color:var(--cyan);color:#04252a}
+.tile{background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.tile:hover{transform:translateY(-5px);border-color:var(--cyan)}
+.tile .cover{height:136px;display:flex;align-items:flex-end;padding:14px 18px;background:center/cover;position:relative;overflow:hidden}
+.tile .cover h3{position:relative;font-size:31px;text-shadow:0 2px 14px rgba(0,0,0,.75)}
+.tile .cover svg{position:absolute;right:-14px;top:-18px;width:150px;height:150px;opacity:.28}
+.tile .body{padding:14px 18px 20px;flex:1}
+.tile small{display:block;color:var(--gold);font-weight:600;font-size:15px;margin-bottom:6px}
+.tile p{color:var(--soft);font-size:16px}
+.tile a{display:inline-block;margin-top:10px;margin-right:12px;font-weight:600}
+
+.videos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.videos a{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:var(--panel);color:var(--text);text-decoration:none}
+.videos a:first-child{grid-column:span 2;grid-row:span 2}
+.videos img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.videos a:hover img{transform:scale(1.08)}
+.videos .cap{position:absolute;inset:auto 0 0;padding:30px 16px 12px;background:linear-gradient(transparent,rgba(5,8,22,.95))}
+.videos b{display:block;font:700 22px/1.1 'Barlow Condensed',Bahnschrift,sans-serif}
+.videos small{color:var(--soft);font-size:14px;line-height:1.35;display:block}
+.videos i{position:absolute;left:50%;top:42%;width:60px;height:60px;margin:-30px;border-radius:50%;background:rgba(255,182,39,.94)}
+.videos i::after{content:"";position:absolute;left:23px;top:18px;border-left:19px solid #231600;border-block:12px solid transparent}
+
+.timeline{position:relative;padding-left:38px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:3px;background:linear-gradient(var(--gold),var(--cyan),#6a55ff)}
+.job{position:relative;display:grid;grid-template-columns:200px minmax(0,1fr);gap:8px 30px;background:var(--panel);border:1px solid var(--line);padding:22px 26px;margin-bottom:16px}
+.job::before{content:"";position:absolute;left:-37px;top:28px;width:17px;height:17px;background:var(--bg);border:3px solid var(--gold);transform:rotate(45deg)}
+.job time{color:var(--cyan);font-weight:600}
+.job h3{font-size:29px;margin-bottom:4px}
+.job p{color:var(--soft)}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px}
+.group{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--c,var(--cyan));padding:22px}
+.group h3{font-size:28px;margin-bottom:14px}
+.group ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.group li{background:var(--panel2);padding:5px 12px;font-size:15px;font-weight:500}
+.group p{color:var(--soft)}
+
+footer{background:linear-gradient(120deg,#2a1d8f,#12306f 55%,#075a6b);padding:90px 0 60px}
+.who{display:flex;gap:48px;align-items:center;flex-wrap:wrap}
+.who img{width:210px;height:210px;border-radius:50%;border:5px solid var(--gold);box-shadow:0 0 60px rgba(255,182,39,.4)}
+footer h2{font-size:clamp(52px,7vw,96px);text-transform:uppercase}
+footer ul{list-style:none;margin:14px 0 24px;font-size:20px}
+footer a:not(.btn){color:#fff}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+
+@media (max-width:1000px){
+  .posters{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .poster,.poster.wide{grid-column:span 1;aspect-ratio:4/3}
+  .poster.full{grid-column:1/-1;aspect-ratio:16/10}
+  .videos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rail{display:flex;overflow-x:auto;padding-top:12px;scroll-snap-type:x mandatory;scroll-padding-inline:28px}
+  .rail button{flex:0 0 170px;scroll-snap-align:start}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:660px){
+  nav ul{gap:14px;font-size:15px}
+  nav .me{display:none}
+  nav ul{width:100%;justify-content:space-between}
+  nav ul li:nth-child(2){display:none}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .posters,.videos{grid-template-columns:minmax(0,1fr)}
+  .videos a:first-child{grid-column:auto;grid-row:auto}
+  .job{grid-template-columns:minmax(0,1fr)}
+  .skills{grid-template-columns:minmax(0,1fr)}
+  section{padding:68px 0}
+  .hero::after{background:linear-gradient(0deg,var(--bg) 12%,rgba(8,12,30,.86) 62%,rgba(8,12,30,.35))}
+  .note{right:12px;top:76px}
+  .bg div{background-position:72% center}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Lost World key art is portrait: show it whole over a blurred copy of itself */
+.bg .portrait::before{content:"";position:absolute;inset:-40px;background:url(lost-world.jpg) center 60%/cover;filter:blur(16px) brightness(.75)}
+.bg .portrait::after{content:"";position:absolute;top:78px;bottom:160px;right:9%;width:42%;background:url(lost-world.jpg) right center/contain no-repeat;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+.poster.full.portrait{aspect-ratio:16/10}
+.poster.portrait .art{filter:blur(14px) brightness(.6);transform:scale(1.12)}
+.poster.portrait .key{position:absolute;top:20px;right:7%;height:calc(100% - 40px);width:auto;box-shadow:0 20px 60px rgba(0,0,0,.65);transition:transform .4s}
+.poster.portrait:hover .key{transform:scale(1.02)}
+.poster.portrait .txt{max-width:48%}
+dialog.portrait .big{aspect-ratio:auto;height:min(68vh,707px)}
+@media (max-width:1000px){.bg .portrait::after{right:2%}}
+@media (max-width:660px){
+  .bg .portrait::after{top:72px;bottom:auto;height:46%;left:0;right:0;width:auto;background-position:center top}
+  .poster.full.portrait{aspect-ratio:2/3}
+  .poster.portrait .key{top:0;right:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top}
+  .poster.portrait .txt{max-width:none;z-index:1;background:linear-gradient(transparent,rgba(7,10,28,.95));padding-top:60px}
+}
+.hero.portrait::after{background:linear-gradient(90deg,rgba(8,12,30,.92) 0%,rgba(8,12,30,.7) 34%,transparent 62%),linear-gradient(0deg,var(--bg) 0%,transparent 24%)}
+@media (max-width:660px){.hero.portrait::after{background:linear-gradient(0deg,var(--bg) 40%,rgba(11,16,36,.45) 52%,transparent 64%)}}
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:48px;align-items:center;margin-bottom:56px}
+.feature.tower .visual{order:2}
+.feature.tower{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+.feature .visual{position:relative;justify-self:center}
+.feature.lost .visual img{max-height:620px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+.feature.tower .visual img{width:100%;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+.feature h3{font-size:clamp(36px,4.4vw,56px)}
+.feature .status{color:var(--cyan);font-weight:600;margin:8px 0 14px}
+.points{margin:18px 0 0 20px}
+.points li{margin-bottom:6px}
+.points li::marker{color:var(--gold)}
+@media (max-width:820px){.feature,.feature.tower{grid-template-columns:minmax(0,1fr);gap:24px}.feature.tower .visual{order:0}}
+.picker{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.picker button{border:3px solid transparent;background:none;padding:0;opacity:.65}
+.picker button:hover{opacity:1}
+.picker button[aria-pressed=true]{border-color:var(--gold);opacity:1}
+.feature.tower .picker img{width:100%;aspect-ratio:16/9;object-fit:cover;box-shadow:none}
+.feature.tower .visual>img{aspect-ratio:16/9;object-fit:cover}
 </style>
 </head>
 <body>
-<div class="top">
-  <nav class="wrap" aria-label="Main">
-    <a class="me disp" href="#">Nitin Menon</a>
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="me disp" href="#top">NITIN MENON</a>
     <ul>
       <li><a href="#games">Games</a></li>
       <li><a href="#videos">Videos</a></li>
@@ -101,31 +212,59 @@ footer h2{font-size:34px;margin-bottom:12px}
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>
-  <header class="wrap intro">
-    <h1>I build games in Unity, from kids' learning apps to TV racers.</h1>
-    <p>Team Lead at Destiny Interactive in Hyderabad. 7+ years of experience, 4 of them in game development, and 2M+ Google Play downloads on my published games.</p>
-  </header>
-  <div class="wrap select">
-    <div class="stage" id="stage" role="tabpanel" aria-live="polite"></div>
-    <div class="slots" id="slots" role="tablist" aria-label="Featured games"></div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="bg" id="bg" aria-hidden="true"></div>
+  <span class="note" id="note" hidden>Concept illustration, not game footage</span>
+  <div class="wrap main">
+    <h1>Nitin Menon</h1>
+    <div class="role disp">Unity game developer and Team Lead</div>
+    <div class="now" id="now"></div>
+  </div>
+  <div class="wrap rail" id="rail" role="group" aria-label="Featured games"></div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div><b>7+</b><span>years of experience</span></div>
+    <div><b>4+</b><span>years in game development</span></div>
+    <div><b>2M+</b><span>Google Play downloads on my published games</span></div>
+    <div><b id="count"></b><span>projects shown here</span></div>
   </div>
 </div>
 
 <main>
-<section id="games">
+<section id="making">
   <div class="wrap">
-    <h2 class="head">All games</h2>
-    <p class="lead">Since I was a child I have wanted to know how games are made. After 3 years in the IT industry I switched careers to make them. These are the ones I have worked on.</p>
-    <div class="filters" id="filters" role="group" aria-label="Filter games by studio"></div>
-    <ul class="games" id="list"></ul>
+    <h2 class="head">In the making</h2>
+    <p class="lead">One from my studio and one of my own.</p>
+    <div id="features"></div>
   </div>
 </section>
 
-<section id="videos" class="alt">
+<section id="games" class="glow">
   <div class="wrap">
-    <h2 class="head">Gameplay videos</h2>
-    <p class="lead">Client work and the games I built while learning. Each thumbnail opens its video gallery.</p>
+    <h2 class="head">Destiny Interactive</h2>
+    <p class="lead">What I am building now, and what I have built there. Open a game to see more.</p>
+    <div class="posters" id="posters"></div>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2 class="head">More games</h2>
+    <p class="lead">Since I was a child I have wanted to know how games are made. After 3 years in the IT industry I switched careers to make them.</p>
+    <div class="filters" id="filters" role="group" aria-label="Filter games"></div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+</section>
+
+<section id="videos" class="glow">
+  <div class="wrap">
+    <h2 class="head">Watch the gameplay</h2>
+    <p class="lead">Client work and the games I built while learning.</p>
     <div class="videos" id="videolist"></div>
   </div>
 </section>
@@ -133,26 +272,25 @@ footer h2{font-size:34px;margin-bottom:12px}
 <section id="experience">
   <div class="wrap">
     <h2 class="head">Experience</h2>
+    <p class="lead">From automation at Infosys to leading at Destiny Interactive.</p>
+    <div class="timeline">
     <div class="job"><time>Jun 2026 – now</time><div><h3>Team Lead, Destiny Interactive</h3><p>Hyderabad. Parent company: Gamebee. Working on Lost World: Game of Destiny and the Ultimate Cricket rework.</p></div></div>
     <div class="job"><time>Mar 2025 – Jun 2026</time><div><h3>Senior Developer, Destiny Interactive</h3><p>Responsible for delivering high-quality games with sound coding architecture.</p></div></div>
     <div class="job"><time>Dec 2024 – Apr 2025</time><div><h3>Software Engineer 2, Juego Studios</h3><p>Bengaluru. The Tower and Mystic World.</p></div></div>
     <div class="job"><time>Nov 2022 – Dec 2024</time><div><h3>Software Engineer 1, Juego Studios</h3><p>Developed and deployed multi-genre games and applications end to end using Unity.</p></div></div>
     <div class="job"><time>Mar 2021 – Oct 2022</time><div><h3>Senior System Engineer, Infosys</h3><p>Pune. Administered ArcGIS and RConnect servers and supported geospatial services for John Deere.</p></div></div>
     <div class="job"><time>Sep 2019 – Feb 2021</time><div><h3>System Engineer, Infosys</h3><p>Built automation bots with AssistEdge, including end-to-end NACH collection that cut effort from 2 FTE to 0.5 FTE.</p></div></div>
+    </div>
   </div>
 </section>
 
-<section id="skills" class="alt">
+
+
+<section id="skills" class="glow">
   <div class="wrap">
-    <h2 class="head">Skills, education and awards</h2>
-    <div class="cols">
-      <div><h3>Game development</h3><p>Unity, XR/VR (Meta Quest), gameplay and AI systems, NavMesh, Timeline, Cinemachine, UI, API integration, performance and memory optimization.</p></div>
-      <div><h3>Platforms and languages</h3><p>Android, Android TV, iOS, Steam, Meta Quest. C#, C++, Java, Python, HTML.</p></div>
-      <div><h3>AI</h3><p>Familiar with Claude, Gemini and ChatGPT. Deep knowledge of AI skills, plugins, connectors and artifacts.</p></div>
-      <div><h3>Tools</h3><p>Visual Studio, VS Code, Rider, Figma, Miro, Jira, Trello, Postman, GitHub, GitLab, Bitbucket.</p></div>
-      <div><h3>Education</h3><p>B.Tech in Computer Science, Lingaya's Vidyapeeth, 2015 – 2019, CGPA 7.74. DevOps and Agile certified (Infosys).</p></div>
-      <div><h3>Awards</h3><p>Table Tennis, Carrom and Cricket at Destiny Interactive. Valorant, Football and Carrom at Juego Studios. Best Debutant (2020) and Insta Award (2021) at Infosys.</p></div>
-    </div>
+    <h2 class="head">Toolkit</h2>
+    <p class="lead">What I build with, and where it has been recognised.</p>
+    <div class="skills" id="skilllist"></div>
   </div>
 </section>
 </main>
@@ -161,61 +299,130 @@ footer h2{font-size:34px;margin-bottom:12px}
   <div class="wrap who">
     <img src="photo.jpg" alt="Nitin Menon">
     <div>
-      <h2>Get in touch</h2>
+      <h2>Let's talk games</h2>
       <ul>
         <li><a href="mailto:nitin2811menon@gmail.com">nitin2811menon@gmail.com</a></li>
         <li><a href="tel:+919711199779">+91 9711199779</a></li>
-        <li><a href="https://www.linkedin.com/in/nitin28menon">linkedin.com/in/nitin28menon</a></li>
         <li>Hyderabad, India. I speak English, Hindi and Malayalam.</li>
       </ul>
-      <a class="btn" href="Nitin_Menon_Resume.pdf" download>Download resume (PDF)</a>
+      <div class="actions">
+        <a class="btn" href="Nitin_Menon_Resume.pdf" download>Download resume</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/nitin28menon">Connect on LinkedIn</a>
+      </div>
     </div>
   </div>
 </footer>
 
+<dialog id="modal" aria-labelledby="mtitle"></dialog>
+
 <script>
 const P = 'https://play.google.com/store/apps/details?id=com.gamebee.';
 const WIX = 'https://nitin2811menon.wixsite.com/uchihacreations/';
+const IMG = 'https://play-lh.googleusercontent.com/';
+const shot = (id,w=1280) => `${IMG}${id}=w${w}`;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Original top-down drawings, one per featured game (no store artwork). */
-const line = 'fill="none" stroke="#7fd0dc" stroke-width="3"';
-const art = {
-  lost: `<g ${line}><circle cx="400" cy="200" r="46"/><circle cx="400" cy="200" r="96" stroke-dasharray="10 12"/><circle cx="165" cy="110" r="52"/><circle cx="650" cy="290" r="64"/><circle cx="660" cy="85" r="34"/><path d="M215 125 L305 180 M492 232 L590 270 M470 135 L630 98" stroke-dasharray="4 10"/></g><path d="M400 170 424 200 400 230 376 200Z" fill="#f2a93b"/>`,
-  football: `<g ${line}><rect x="60" y="40" width="680" height="320"/><path d="M400 40V360"/><circle cx="400" cy="200" r="62"/><rect x="60" y="110" width="110" height="180"/><rect x="630" y="110" width="110" height="180"/></g><circle cx="470" cy="168" r="13" fill="#f2a93b"/>`,
-  racer: `<path d="M-20 330C200 330 190 90 420 90S620 300 830 210" fill="none" stroke="#2b5373" stroke-width="130"/><path d="M-20 330C200 330 190 90 420 90S620 300 830 210" fill="none" stroke="#7fd0dc" stroke-width="3" stroke-dasharray="22 20"/><rect x="392" y="62" width="62" height="32" rx="9" fill="#f2a93b"/>`,
-  cricket: `<g ${line}><ellipse cx="400" cy="200" rx="330" ry="170"/><ellipse cx="400" cy="200" rx="180" ry="100" stroke-dasharray="8 10"/><rect x="372" y="105" width="56" height="190"/><path d="M356 135H444M356 265H444"/></g><circle cx="400" cy="182" r="10" fill="#f2a93b"/>`,
-  tower: `<g stroke="#2b5373" stroke-width="2">${[...Array(11)].map((_,i)=>`<path d="M${i*80} 0V400"/>`).join('')}${[...Array(6)].map((_,i)=>`<path d="M0 ${i*80}H800"/>`).join('')}</g><path d="M0 120H280V280H520V120H800" fill="none" stroke="#7fd0dc" stroke-width="30" opacity=".45"/><g fill="#f2a93b"><rect x="178" y="178" width="44" height="44"/><rect x="378" y="178" width="44" height="44"/><rect x="578" y="178" width="44" height="44"/></g><g ${line}><circle cx="400" cy="200" r="105" stroke-dasharray="6 10"/></g>`
+const ART = {lost:'lost-world.jpg', tower:'threnvale-1.jpg'};
+const TOWER_SHOTS = ['threnvale-1.jpg','threnvale-2.jpg','threnvale-3.jpg'];
+const CONCEPT = {}; /* none: both games use their own art */
+
+const S = {
+  football:['0J6JdGPe9y_iDMEx4ohEykQr5Tb-Ylct8UGOk0Fg7Zb1gg_rIuYBnXKCYugh8wnKM9EK3Rtex_FM6xNou29hyA','dwdbyFYqkO0353p97n7a3IZEhQi82d9D8L0_wBJLUJNGHM8eU22FTfS36gu6m9VdUOGrr4S8zgEVjcQyMEVqejE','lo7gx0nOMvgO2oLoyrHdmKUyNa0I-6wqudf-69dDF3UwhcGE4SYNx2jiC_KgaMAFGVGh1YAuOikEqQ9EdO5dhIc'],
+  racer:['6Sn9Q-jWYVrRxHX0ward-uayUKRpjWSKgyLFmv7ENS0qcQwj5bmnFy5tNWjezyZeuZM6GSN6ttf7dYHFLNugKA','dyXJVd7SP4Nd4Qz8-W09UN26dJQYcoxtC5Deq722i8QGRCJ3Ez8a523F0YtuMF-PY_6rFXDFDPTmy6cZL1oa0Q','TfInN8nATNC3L3_qbrHnvX_ihxW8B5N5ugsz5e8WHQlA0n_JbkGv2nZatHGBGyPBFJUFZ4PGz1TrckTZ2f2MfkY'],
+  cricket:['599dlespi3FmiBHciQEOMbOMJCxT_D4C6YmZ2stSqOCrHztdBB1NsQsNAuDDrz41dTvuevpsMLtDVcOEa75dOp0','FrWnpvrgev835Wrz3mVszNRYCyiUrSPC4FYPDdY_XzG93kvWUWuEzDQzymrM4kk4yr5PmPbAdqiowOCrSRDkSg','Q-167u9Ny_PbMhSeGazKBUcf0uSEknrtGzcWjGKCE-n2-In7v6ifU6yKOOXjqvQFshw80JTCcd0ITJE4KdsU5A'],
+  sports:['IXVjs5cMOIlBcjSH0FYw0_EyA7hnFU8pz8qB4Vw7k9LBObRUrZohD_NiVHMGVv3eX4BotxXb8SEyBUsbHITY','t0RAx2BJ6wI6wDZ-dnxauhqetYIf2g_Z7QM3P7LhUDkhslpE4sGevegddOkdmaTrj0zsuej36f07E-PvO1Gc8Q','Moa9JqVm7wiPKhTcHgjLEP7sllZB7qcNBWFOLDWStCSaZAbWa4761GR13jKU2hTq3iUCwnu7-WHtUH2__gRHbw'],
+  sportstv:['kF_tU9d2HQ1QzlieiGdkG_X8pamEAHftrNphuuQWukUKMWgwMocN-quVZl807eb5rIZbs6L9dSbCAOFhE2NasSE','3vKLfkq72jyj4ldsXsNmrb-GmEBTMwZfijx04QUGyJR0AObfqr6nKwqtZpniIgNsD-auJgxQ9qB3ALiL8Koxtg','YsqVjzQ1vRlog-hMg5P-kYonqZlHX0PUqyCZMdHUFYKO0SJvgsfIGQ_-jRjPl0iLmPDj7RB6j43orAJh0HEU_g'],
+  dino:['PIhdewYiynKfgwXH_F1OHtojNfmrtQrhOh_8oDDC1a3dA1wQHArWxcIA9hpPUQaNar7vZ6TCHfDgTz-yqZTDmA','gkB3fLrukIkfTFsMZaqkXRhbiBt517GMgPc4RyfISNgOnfznZqUPqu183TMIeRMHToCk97BpWsi9-Sc9jWa6Sg','_vhSpNGtlZcPX5cINXnac3CIpdJiHcvtEdPSLXsGF8S1JFMC8SIh5rHD6j2EnJYZ9eFdkDtbpfR3MNw3CF9-Uqw']
 };
+const pics = k => k==='tower' ? TOWER_SHOTS : ART[k] ? [ART[k]] : S[k].map(id=>shot(id));
 
-const featured = [
-  {art:'lost', name:'Lost World: Game of Destiny', short:'In development', facts:'AAA title for Steam, in development', text:"The company's largest game: an exploration survival title built around lost relics, with multiple worlds that the player explores to progress.", links:[]},
-  {art:'football', name:'Ultimate Football Champions 3D', short:'Built solo, 1M+ downloads', facts:'Android TV, 1M+ downloads, sole developer', text:'I built the whole game from scratch, including its TV version.', links:[['View on Google Play',P+'androidtv.soccer']]},
-  {art:'racer', name:'Master Racer', short:'TV and phone racing', facts:'Android TV 1M+ downloads, phone 100K+', text:'I built the whole game, an Asphalt-style racer with multiple stages, boost and other gameplay functionality.', links:[['Android TV version',P+'androidtv.superracing'],['Phone version',P+'superracing']]},
-  {art:'cricket', name:'Ultimate Cricket: League Games', short:'Rework in progress', facts:'Ongoing rework', text:'I am currently reworking the game and adding new functionality.', links:[['View on Google Play',P+'cricket']]},
-  {art:'tower', name:'Threnvale', short:'My own tower defense', facts:'Personal project, in progress', text:'A top-down tower defense game that I am currently working on.', links:[]}
+/* Destiny games: [art, name, short, facts, text, links, layout, badge] */
+const destiny = [
+  ['lost','Lost World: Game of Destiny','In development','AAA title for Steam, in development',"The company's largest game: exploration survival built around lost relics, across underwater, forest and space worlds.",[],'full','In development'],
+  ['football','Ultimate Football Champions 3D','Sole developer','Android TV, 1M+ downloads, sole developer','I built the whole game from scratch, including its TV version.',[['View on Google Play',P+'androidtv.soccer']],'wide','1M+ downloads'],
+  ['racer','Master Racer','Built the whole game','Android TV 1M+ downloads, phone 100K+','I built the whole game, an Asphalt-style racer with multiple stages, boost and other gameplay functionality.',[['Android TV version',P+'androidtv.superracing'],['Phone version',P+'superracing']],'wide','1M+ downloads'],
+  ['cricket','Ultimate Cricket: League Games','Rework in progress','Ongoing rework','I am currently reworking the game and adding new functionality.',[['View on Google Play',P+'cricket']],'','Rework in progress'],
+  ['sports','World Sports Games & Athletics','Tennis, badminton, tournaments','Mobile','I developed the tennis and badminton games and the achievements and tournament systems, and handled basic structure checks and bug fixing.',[['View on Google Play',P+'worldsports']],'',''],
+  ['sportstv','World Sports Games TV','TV optimization','Android TV','I contributed to optimizing the TV version to prevent crashes on hardware with limited graphics support.',[['View on Google Play',P+'androidtv.olympics']],'',''],
+  ['dino','Dino Hunter: 3D Shooting Game','Game optimization','3D shooter','I was responsible for game optimization.',[['View on Google Play',P+'androidtv.dinohunter']],'full','']
 ];
+const linkRow = links => links.map((l,i)=>`<a class="btn${i?' ghost':''}" href="${l[1]}">${l[0]}</a>`).join('');
 
-const stage = document.getElementById('stage'), slots = document.getElementById('slots');
+const DETAILS = {
+ "lost": {
+  "name": "Lost World: Game of Destiny",
+  "status": "AAA title for Steam, in development",
+  "intro": "Lost relics, three worlds and one way forward: survive. Lost World is an exploration survival game, and the largest game our company is making. It takes you beneath the water, into the forest and finally out into space, and every world asks something different of you.",
+  "points": [
+   "Underwater world: explore and survive beneath the surface",
+   "Forest world: a different test of survival among the trees",
+   "Space world: the last of the three",
+   "Each world brings its own survival and exploration experience",
+   "Progress through each world to move your journey forward"
+  ]
+ },
+ "tower": {
+  "name": "Threnvale",
+  "status": "My own tower defense game, in development",
+  "intro": "The enemy arrives in waves, and the map is yours to defend. Threnvale is a classic top-down tower defense game with a story that unfolds while you play: hold your ground, push further and open the next chapter.",
+  "points": [
+   "Place towers on the map to confront each wave of enemies",
+   "A story that runs alongside the gameplay",
+   "Move through the chapters as you progress"
+  ]
+ }
+};
+const points = d => `<ul class="points">${d.points.map(p=>`<li>${p}</li>`).join('')}</ul>`;
+document.getElementById('features').innerHTML = Object.entries(DETAILS).map(([k,d])=>`<article class="feature ${k}"><div class="visual"><img src="${ART[k]}" alt="${k==='lost'?'Key art for':'Gameplay screenshot of'} ${d.name}">${CONCEPT[k]?'<em class="concept">Concept art</em>':''}</div><div><h3>${d.name}</h3><p class="status">${d.status}</p><p>${d.intro}</p>${points(d)}</div></article>`).join('');
+
+/* Threnvale screenshot picker */
+const towerBox = document.querySelector('.feature.tower .visual');
+towerBox.insertAdjacentHTML('beforeend', `<div class="picker">${TOWER_SHOTS.map((u,i)=>`<button type="button" aria-label="Show Threnvale screenshot ${i+1}" aria-pressed="${!i}"><img src="${u}" alt=""></button>`).join('')}</div>`);
+towerBox.querySelectorAll('.picker button').forEach((b,i,all)=>b.onclick=()=>{towerBox.querySelector(':scope > img').src=TOWER_SHOTS[i]; all.forEach(o=>o.setAttribute('aria-pressed',o===b))});
+
+/* posters + detail dialog */
+const modal = document.getElementById('modal');
+function open_(g){
+  const p = pics(g[0]);
+  modal.innerHTML = `<button class="close" aria-label="Close">×</button><img class="big" src="${p[0]}" alt="${CONCEPT[g[0]]?'Concept illustration for':g[0]==='lost'?'Key art for':'Store screenshot of'} ${g[1]}">${p.length>1?`<div class="thumbs">${p.map((u,i)=>`<button aria-label="Screenshot ${i+1}" aria-pressed="${!i}"><img src="${u}" alt=""></button>`).join('')}</div>`:''}<div class="body"><h3 id="mtitle">${g[1]}</h3><p style="color:var(--cyan);font-weight:600">${g[3]}</p><p>${DETAILS[g[0]]?DETAILS[g[0]].intro:g[4]}</p>${DETAILS[g[0]]?points(DETAILS[g[0]]):''}${CONCEPT[g[0]]?'<p style="color:var(--soft);font-size:14px;margin-top:10px">Concept illustration, not game footage.</p>':''}<div class="links">${linkRow(g[5])}</div></div>`;
+  modal.classList.toggle('portrait', g[0]==='lost');
+  modal.querySelector('.close').onclick = ()=>modal.close();
+  modal.querySelectorAll('.thumbs button').forEach((b,i)=>b.onclick=()=>{modal.querySelector('.big').src=p[i]; modal.querySelectorAll('.thumbs button').forEach(o=>o.setAttribute('aria-pressed',o===b))});
+  modal.showModal();
+}
+modal.onclick = e=>{ if(e.target===modal) modal.close() };
+destiny.filter(g=>g[0]!=='lost').forEach(g=>{ /* Lost World has its own feature above */
+  const b = document.createElement('button'); b.type='button'; b.className='poster '+g[6]+(g[0]==='lost'?' portrait':'');
+  b.innerHTML = `<div class="art" style="background-image:url('${pics(g[0])[0]}')"></div>${g[7]?`<span class="badge${g[0]==='lost'?'':' c'}">${g[7]}</span>`:''}<div class="txt"><h3>${g[1]}</h3><p>${g[2]}</p></div>${g[0]==='lost'?`<img class="key" src="${ART.lost}" alt="">`:''}${CONCEPT[g[0]]?'<em class="concept">Concept art</em>':''}`;
+  b.onclick = ()=>open_(g); document.getElementById('posters').append(b);
+});
+
+/* hero launcher */
+const featured = [destiny[0],destiny[1],destiny[2],destiny[3],destiny[4],
+  ['tower','Threnvale','My own tower defense','Personal project, in progress','A classic top-down tower defense game with a story told in chapters. Place towers to hold off enemy waves.',[]]];
+const bg = document.getElementById('bg'), rail = document.getElementById('rail'), now = document.getElementById('now'), hero = document.getElementById('top');
+let cur = 0, timer;
 function show(i){
-  const g = featured[i];
-  stage.innerHTML = `<svg viewBox="0 0 800 400" role="img" aria-label="Drawing representing ${g.name}">${art[g.art]}</svg><div class="info"><h2>${g.name}</h2><div class="facts">${g.facts}</div><p>${g.text}</p><div class="links">${g.links.map(l=>`<a class="btn" href="${l[1]}">${l[0]}</a>`).join('')}</div></div>`;
-  [...slots.children].forEach((b,n)=>{b.setAttribute('aria-selected', n===i); b.tabIndex = n===i ? 0 : -1});
+  cur = i; const g = featured[i];
+  [...bg.children].forEach((d,n)=>d.classList.toggle('on',n===i));
+  [...rail.children].forEach((b,n)=>b.setAttribute('aria-pressed',n===i));
+  now.innerHTML = `<h2>${g[1]}</h2><div class="facts">${g[3]}</div><p>${g[4]}</p><div class="links">${g[5].length?linkRow(g[5]):'<a class="btn" href="#games">See my games</a>'}</div>`;
+  hero.classList.toggle('portrait', g[0]==='lost');
+  document.getElementById('note').hidden = !CONCEPT[g[0]];
 }
 featured.forEach((g,i)=>{
-  const b = document.createElement('button');
-  b.type='button'; b.setAttribute('role','tab'); b.innerHTML = `${g.name}<small>${g.short}</small>`;
-  b.onclick = ()=>show(i);
-  b.onkeydown = e=>{
-    const step = {ArrowDown:1,ArrowRight:1,ArrowUp:-1,ArrowLeft:-1}[e.key];
-    if(!step) return;
-    e.preventDefault();
-    const n = (i+step+featured.length)%featured.length; show(n); slots.children[n].focus();
-  };
-  slots.append(b);
+  const url = pics(g[0])[0];
+  const d = document.createElement('div'); if(g[0]==='lost') d.className='portrait'; else d.style.backgroundImage=`url('${url}')`; bg.append(d);
+  const b = document.createElement('button'); b.type='button'; b.style.backgroundImage=`url('${ART[g[0]]?url:shot(S[g[0]][0],400)}')`; if(g[0]==='lost') b.style.backgroundPosition='center 8%'; b.innerHTML=`<span>${g[1]}</span>${CONCEPT[g[0]]?'<em class="concept">Concept art</em>':''}`;
+  b.onclick = ()=>{clearInterval(timer); show(i)}; rail.append(b);
 });
 show(0);
+if(!reduce){
+  let paused=false;
+  hero.onmouseenter = ()=>paused=true; hero.onmouseleave = ()=>paused=false;
+  timer = setInterval(()=>{ if(!paused && !hero.contains(document.activeElement) && scrollY<300) show((cur+1)%featured.length) },6000);
+}
 
-/* [studio, name, role or platform, what I did, links] */
 const games = [
   ['Destiny','Lost World: Game of Destiny','Steam, in development','Working on a AAA exploration survival game built around lost relics, with multiple worlds to explore.',[]],
   ['Destiny','Ultimate Cricket: League Games','Ongoing rework','Reworking the game and adding new functionality.',[['Google Play',P+'cricket']]],
@@ -227,13 +434,13 @@ const games = [
   ['Juego','The Tower','VR RPG','Built core architecture for player, enemy, companion and boss systems, enemy and companion AI and crowd control, XR integration, cutscenes, narration, quests and NPCs.',[]],
   ['Juego','Mystic World','RPG','Created hero classes, combat, quests, NPCs, UI and object interaction. Integrated scenes and a weather system.',[]],
   ['Juego','Mittin','Steam, solo developer','Developed all modules end to end.',[['Steam','https://store.steampowered.com/app/2313630/MITTIN/']]],
-  ['Juego','USP',"Kids' platform",'Built UI, gameplay, API and plugins for an app with 165+ blocks, each a separate mini game.',[]],
+  ['Juego','Apples & Bananas',"Kids' app, formerly USP",'Built UI, gameplay, API and plugins for an app with 165+ blocks, each a separate mini game.',[['Google Play','https://play.google.com/store/apps/details?id=com.uspdigital.applesbananas']]],
   ['Juego','KidsVerse',"Kids' learning, 3D",'Created gameplay and UI and applied memory optimization.',[]],
   ['Juego','RainingTrivia','Educational quiz','Delivered API integration, UI and gameplay.',[]],
   ['Juego','Verse','3D scenes','Set up automated AI battle scenes with NavMesh and splines, plus UI screens from Figma.',[]],
   ['Juego','Honk and Slide','Match-3','Worked on UI and gameplay.',[]],
   ['Juego','3D Pool','8-ball with 3D view','Worked on UI, gameplay and bug fixing.',[]],
-  ['Personal','Threnvale','Top-down tower defense, in progress','The game I am currently building on my own time.',[]],
+  ['Personal','Threnvale','Top-down tower defense, in progress','Classic tower defense with a chapter story: place towers to hold off enemy waves.',[]],
   ['Personal','Zombie Hunter','3D first person shooter','Find the key while fighting zombies to reach the next level.',[]],
   ['Personal','Dungeon Master','3D endless runner','Dodge traps and collect coins.',[]],
   ['Personal','Virtual Gallery','3D walkthrough','A walkable One Piece gallery with rooms for each Yonko crew.',[]],
@@ -244,17 +451,35 @@ const games = [
   ['Personal','Snake and Brick Breaker','Java','Two classic arcade games.',[]],
   ['Personal','Quiz Game','C++','Multiple choice questions with points and grades.',[]]
 ];
-const list = document.getElementById('list'), filters = document.getElementById('filters');
+
+/* tiles for everything outside Destiny */
+const cover = id => `https://static.wixstatic.com/media/${id}f002.jpg`;
+const COVERS = {
+  'The Tower':cover('00df22_482d8b6ba8074d10a626b7959b4509b5'),
+  'Mittin':'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2313630/header.jpg',
+  'Zombie Hunter':cover('00df22_e8c7c0871ea1454da9dc32e87e2cc0da'),'Dungeon Master':cover('00df22_140959d164af45158ee4098d458da350'),
+  'Virtual Gallery':cover('00df22_b9b95471f48a462eba4b6ab0aeb276df'),'BreakOut3D':cover('00df22_b5f386e242fd4459b5bf7cea3ba4d61d'),
+  'Car Brawlers':cover('00df22_5e08be1b3f8143639eb64991714381c6'),'Bomberman':cover('00df22_132e4aa76a534b49a4332d66b6b66850'),
+  'Threnvale':ART.tower,
+  'Apples & Bananas':'https://play-lh.googleusercontent.com/gfxuN0z36HZZqUw7tnR55prX-tE9_Ifocldz7e6HplVeyoXLksCj8_xU31-QpMTeSVh3v43z_tvA2x3PX-aN_AQ=w640'
+};
+const others = games.filter(g=>g[0]!=='Destiny');
+document.getElementById('count').textContent = games.length;
+const hues = [[258,212],[330,265],[190,225],[22,338],[165,200],[285,225]];
+const tiles = document.getElementById('tiles'), filters = document.getElementById('filters');
 function draw(key){
-  list.innerHTML = games.filter(g=>key==='All'||g[0]===key).map(g=>`<li><div><h3>${g[1]}</h3><span>${g[2]}</span></div><p>${g[3]} ${g[4].map(l=>`<a href="${l[1]}">${l[0]}</a>`).join('')}</p></li>`).join('');
+  tiles.innerHTML = others.filter(g=>key==='All'||g[0]===key).map(g=>{
+    const i = others.indexOf(g), [a,b] = hues[i%hues.length];
+    const style = COVERS[g[1]] ? `background-image:linear-gradient(transparent 35%,rgba(7,10,28,.85)),url('${COVERS[g[1]]}')` : `background:linear-gradient(135deg,hsl(${a} 72% 48%),hsl(${b} 76% 24%))`;
+    const deco = COVERS[g[1]] ? '' : `<svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="5" aria-hidden="true">${['<circle cx="50" cy="50" r="38"/><circle cx="50" cy="50" r="18"/>','<path d="M50 8 92 50 50 92 8 50Z M50 30 70 50 50 70 30 50Z"/>','<path d="M50 10 90 82H10Z M50 36 70 72H30Z"/>','<path d="M16 16h28v28H16z M56 16h28v28H56z M16 56h28v28H16z M56 56h28v28H56z"/>'][i%4]}</svg>`;
+    return `<article class="tile"><div class="cover" style="${style}">${deco}<h3>${g[1]}</h3></div><div class="body"><small>${g[0]==='Juego'?'Juego Studios':'Personal project'} · ${g[2]}</small><p>${g[3]}</p>${g[4].map(l=>`<a href="${l[1]}">${l[0]}</a>`).join('')}</div></article>`}).join('');
   [...filters.children].forEach(b=>b.setAttribute('aria-pressed', b.dataset.key===key));
 }
-[['All','All'],['Destiny','Destiny Interactive'],['Juego','Juego Studios'],['Personal','Personal']].forEach(([key,label])=>{
+[['All','All'],['Juego','Juego Studios'],['Personal','Personal']].forEach(([key,label])=>{
   const b = document.createElement('button'); b.type='button'; b.dataset.key=key; b.textContent=label; b.onclick=()=>draw(key); filters.append(b);
 });
 draw('All');
 
-const cover = id => `https://static.wixstatic.com/media/${id}f002.jpg`;
 const videos = [
   ['The Tower','Client project: a VR RPG based on books published by the client.','00df22_482d8b6ba8074d10a626b7959b4509b5','copy-of-portfolio'],
   ['Zombie Hunter','First person shooter.','00df22_e8c7c0871ea1454da9dc32e87e2cc0da','gamingportfolio'],
@@ -264,7 +489,20 @@ const videos = [
   ['Car Brawlers','Personal project.','00df22_5e08be1b3f8143639eb64991714381c6','gamingportfolio'],
   ['Bomberman','Classic 2D arcade game.','00df22_132e4aa76a534b49a4332d66b6b66850','gamingportfolio']
 ];
-document.getElementById('videolist').innerHTML = videos.map(v=>`<figure><a href="${WIX+v[3]}" aria-label="Watch ${v[0]}"><img src="${cover(v[2])}" alt="Screenshot from ${v[0]}" loading="lazy"></a><figcaption><h3>${v[0]}</h3><p>${v[1]}</p></figcaption></figure>`).join('');
+
+document.getElementById('videolist').innerHTML = videos.map(v=>`<a href="${WIX+v[3]}"><img src="${cover(v[2])}" alt="" loading="lazy"><i aria-hidden="true"></i><span class="cap"><b>${v[0]}</b><small>${v[1]}</small></span></a>`).join('')
+  + `<a href="${WIX}gamingportfolio" style="display:grid;place-content:center;text-align:center;background:linear-gradient(135deg,#3b2bb5,#0e9aa7)"><b>Open the full video gallery</b></a>`;
+
+const skills = [
+  ['Game development','#ffb627',['Unity','XR/VR (Meta Quest)','Gameplay and AI systems','NavMesh','Timeline','Cinemachine','UI','API integration','Performance and memory optimization']],
+  ['Platforms and languages','#3fe0ee',['Android','Android TV','iOS','Steam','Meta Quest','C#','C++','Java','Python','HTML']],
+  ['AI','#ff5c8a',['Familiar: Claude','Familiar: Gemini','Familiar: ChatGPT','Deep knowledge: skills','Plugins','Connectors','Artifacts']],
+  ['Tools','#8b7bff',['Visual Studio','VS Code','Rider','Figma','Miro','Jira','Trello','Postman','GitHub','GitLab','Bitbucket']],
+  ['Awards','#ffb627',['Table Tennis, Carrom and Cricket: Destiny Interactive','Valorant, Football and Carrom: Juego Studios','Best Debutant: Infosys, 2020','Insta Award: Infosys, 2021']],
+  ['Education','#3fe0ee',['B.Tech in Computer Science','Lingaya\'s Vidyapeeth, 2015 – 2019','CGPA 7.74','DevOps and Agile certified (Infosys)']]
+];
+document.getElementById('skilllist').innerHTML = skills.map(s=>`<div class="group" style="--c:${s[1]}"><h3>${s[0]}</h3><ul>${s[2].map(i=>`<li>${i}</li>`).join('')}</ul></div>`).join('');
+const nav = document.querySelector('nav'); addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>80),{passive:true});
 </script>
 </body>
 </html>
