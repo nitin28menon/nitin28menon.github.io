@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nitin Menon | Unity game developer and Team Lead</title>
+<meta name="description" content="Games by Nitin Menon, Unity game developer and Team Lead in Hyderabad: racing, sports, RPG, VR and kids' learning titles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14304a;--deep:#0c2033;--mist:#e9f0f3;--paper:#fbfcfd;--amber:#f2a93b;--teal:#0f7283;--ink:#1d2733;--soft:#53667a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:18px/1.55 'Source Sans 3','Segoe UI',sans-serif}
+h1,h2,h3,.disp{font-family:'Chakra Petch',Bahnschrift,sans-serif;line-height:1.12}
+a{color:var(--teal);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+.top{background:var(--deep);color:#e8f1f7}
+.top a{color:inherit}
+nav.wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:20px;padding-bottom:20px}
+nav .me{font-size:20px;font-weight:700;text-decoration:none}
+nav ul{display:flex;gap:8px 20px;list-style:none;flex-wrap:wrap}
+nav ul a{text-decoration:none}
+nav ul a:hover{text-decoration:underline}
+.intro{padding-top:36px;padding-bottom:32px}
+h1{font-size:clamp(34px,5.4vw,62px);max-width:17ch}
+.intro p{margin-top:16px;max-width:62ch;color:#bcd0df;font-size:20px}
+
+/* the game selector: the one showpiece */
+.select{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:20px;padding-bottom:48px}
+.stage{background:var(--navy);border:2px solid #2b5373;display:flex;flex-direction:column;min-width:0}
+.stage svg{display:block;width:100%;aspect-ratio:16/8}
+.info{padding:20px 24px 24px;min-height:230px}
+.info h2{font-size:32px}
+.facts{color:var(--amber);font-weight:600;margin:6px 0 10px}
+.info p{max-width:62ch}
+.info .links{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--amber);color:#2a1b00!important;font-weight:600;text-decoration:none;padding:9px 16px;border:0}
+.slots{display:flex;flex-direction:column;gap:8px}
+.slots button{font:700 17px/1.2 'Chakra Petch',Bahnschrift,sans-serif;text-align:left;color:#e8f1f7;background:transparent;border:2px solid #2b5373;padding:12px 14px;cursor:pointer}
+.slots button small{display:block;font:400 15px/1.3 'Source Sans 3',sans-serif;color:#9db7ca;margin-top:2px}
+.slots button:hover{border-color:var(--amber)}
+.slots button[aria-selected=true]{background:var(--amber);border-color:var(--amber);color:#1f1400}
+.slots button[aria-selected=true] small{color:#3d2a05}
+
+section{padding:64px 0}
+section.alt{background:var(--mist)}
+h2.head{font-size:34px;color:var(--navy);margin-bottom:8px}
+.lead{max-width:66ch;color:var(--soft);margin-bottom:28px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filters button{font:600 16px 'Source Sans 3',sans-serif;padding:7px 15px;background:transparent;color:var(--navy);border:2px solid var(--navy);cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--navy);color:#fff}
+.games{list-style:none}
+.games li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:8px 32px;padding:18px 0;border-top:1px solid #c8d6df}
+.games h3{font-size:21px;color:var(--navy)}
+.games h3+span{display:block;color:var(--soft);font-size:16px;margin-top:3px}
+.games p a{margin-right:14px;white-space:nowrap}
+
+.videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px 22px}
+.videos figure>a{display:block;background:var(--navy);aspect-ratio:16/9;overflow:hidden}
+.videos img{width:100%;height:100%;object-fit:cover;display:block}
+.videos figcaption{margin-top:10px}
+.videos h3{font-size:19px;color:var(--navy)}
+
+.job{display:grid;grid-template-columns:190px minmax(0,1fr);gap:6px 32px;padding:22px 0;border-top:1px solid #c8d6df}
+.job time{color:var(--soft);font-weight:600}
+.job h3{font-size:22px;color:var(--navy)}
+.job p{max-width:70ch}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px 40px}
+.cols h3{font-size:19px;color:var(--navy);margin-bottom:6px}
+
+footer{background:var(--deep);color:#e8f1f7;padding:56px 0}
+footer a{color:#fff}
+footer h2{font-size:34px;margin-bottom:12px}
+.who{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.who img{width:132px;height:132px;border-radius:50%;border:3px solid var(--amber)}
+.who ul{list-style:none;margin-bottom:16px}
+
+@media (max-width:820px){
+  .select{grid-template-columns:minmax(0,1fr)}
+  .slots{display:grid;grid-template-columns:1fr 1fr;order:-1}
+  .games li,.job{grid-template-columns:minmax(0,1fr)}
+  .info{min-height:0}
+  .videos{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="top">
+  <nav class="wrap" aria-label="Main">
+    <a class="me disp" href="#">Nitin Menon</a>
+    <ul>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <header class="wrap intro">
+    <h1>I build games in Unity, from kids' learning apps to TV racers.</h1>
+    <p>Team Lead at Destiny Interactive in Hyderabad. 7+ years of experience, 4 of them in game development, and 2M+ Google Play downloads on my published games.</p>
+  </header>
+  <div class="wrap select">
+    <div class="stage" id="stage" role="tabpanel" aria-live="polite"></div>
+    <div class="slots" id="slots" role="tablist" aria-label="Featured games"></div>
+  </div>
+</div>
+
+<main>
+<section id="games">
+  <div class="wrap">
+    <h2 class="head">All games</h2>
+    <p class="lead">Since I was a child I have wanted to know how games are made. After 3 years in the IT industry I switched careers to make them. These are the ones I have worked on.</p>
+    <div class="filters" id="filters" role="group" aria-label="Filter games by studio"></div>
+    <ul class="games" id="list"></ul>
+  </div>
+</section>
+
+<section id="videos" class="alt">
+  <div class="wrap">
+    <h2 class="head">Gameplay videos</h2>
+    <p class="lead">Client work and the games I built while learning. Each thumbnail opens its video gallery.</p>
+    <div class="videos" id="videolist"></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2 class="head">Experience</h2>
+    <div class="job"><time>Jun 2026 – now</time><div><h3>Team Lead, Destiny Interactive</h3><p>Hyderabad. Parent company: Gamebee. Working on Lost World: Game of Destiny and the Ultimate Cricket rework.</p></div></div>
+    <div class="job"><time>Mar 2025 – Jun 2026</time><div><h3>Senior Developer, Destiny Interactive</h3><p>Responsible for delivering high-quality games with sound coding architecture.</p></div></div>
+    <div class="job"><time>Dec 2024 – Apr 2025</time><div><h3>Software Engineer 2, Juego Studios</h3><p>Bengaluru. The Tower and Mystic World.</p></div></div>
+    <div class="job"><time>Nov 2022 – Dec 2024</time><div><h3>Software Engineer 1, Juego Studios</h3><p>Developed and deployed multi-genre games and applications end to end using Unity.</p></div></div>
+    <div class="job"><time>Mar 2021 – Oct 2022</time><div><h3>Senior System Engineer, Infosys</h3><p>Pune. Administered ArcGIS and RConnect servers and supported geospatial services for John Deere.</p></div></div>
+    <div class="job"><time>Sep 2019 – Feb 2021</time><div><h3>System Engineer, Infosys</h3><p>Built automation bots with AssistEdge, including end-to-end NACH collection that cut effort from 2 FTE to 0.5 FTE.</p></div></div>
+  </div>
+</section>
+
+<section id="skills" class="alt">
+  <div class="wrap">
+    <h2 class="head">Skills, education and awards</h2>
+    <div class="cols">
+      <div><h3>Game development</h3><p>Unity, XR/VR (Meta Quest), gameplay and AI systems, NavMesh, Timeline, Cinemachine, UI, API integration, performance and memory optimization.</p></div>
+      <div><h3>Platforms and languages</h3><p>Android, Android TV, iOS, Steam, Meta Quest. C#, C++, Java, Python, HTML.</p></div>
+      <div><h3>AI</h3><p>Familiar with Claude, Gemini and ChatGPT. Deep knowledge of AI skills, plugins, connectors and artifacts.</p></div>
+      <div><h3>Tools</h3><p>Visual Studio, VS Code, Rider, Figma, Miro, Jira, Trello, Postman, GitHub, GitLab, Bitbucket.</p></div>
+      <div><h3>Education</h3><p>B.Tech in Computer Science, Lingaya's Vidyapeeth, 2015 – 2019, CGPA 7.74. DevOps and Agile certified (Infosys).</p></div>
+      <div><h3>Awards</h3><p>Table Tennis, Carrom and Cricket at Destiny Interactive. Valorant, Football and Carrom at Juego Studios. Best Debutant (2020) and Insta Award (2021) at Infosys.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap who">
+    <img src="photo.jpg" alt="Nitin Menon">
+    <div>
+      <h2>Get in touch</h2>
+      <ul>
+        <li><a href="mailto:nitin2811menon@gmail.com">nitin2811menon@gmail.com</a></li>
+        <li><a href="tel:+919711199779">+91 9711199779</a></li>
+        <li><a href="https://www.linkedin.com/in/nitin28menon">linkedin.com/in/nitin28menon</a></li>
+        <li>Hyderabad, India. I speak English, Hindi and Malayalam.</li>
+      </ul>
+      <a class="btn" href="Nitin_Menon_Resume.pdf" download>Download resume (PDF)</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const P = 'https://play.google.com/store/apps/details?id=com.gamebee.';
+const WIX = 'https://nitin2811menon.wixsite.com/uchihacreations/';
+
+/* Original top-down drawings, one per featured game (no store artwork). */
+const line = 'fill="none" stroke="#7fd0dc" stroke-width="3"';
+const art = {
+  lost: `<g ${line}><circle cx="400" cy="200" r="46"/><circle cx="400" cy="200" r="96" stroke-dasharray="10 12"/><circle cx="165" cy="110" r="52"/><circle cx="650" cy="290" r="64"/><circle cx="660" cy="85" r="34"/><path d="M215 125 L305 180 M492 232 L590 270 M470 135 L630 98" stroke-dasharray="4 10"/></g><path d="M400 170 424 200 400 230 376 200Z" fill="#f2a93b"/>`,
+  football: `<g ${line}><rect x="60" y="40" width="680" height="320"/><path d="M400 40V360"/><circle cx="400" cy="200" r="62"/><rect x="60" y="110" width="110" height="180"/><rect x="630" y="110" width="110" height="180"/></g><circle cx="470" cy="168" r="13" fill="#f2a93b"/>`,
+  racer: `<path d="M-20 330C200 330 190 90 420 90S620 300 830 210" fill="none" stroke="#2b5373" stroke-width="130"/><path d="M-20 330C200 330 190 90 420 90S620 300 830 210" fill="none" stroke="#7fd0dc" stroke-width="3" stroke-dasharray="22 20"/><rect x="392" y="62" width="62" height="32" rx="9" fill="#f2a93b"/>`,
+  cricket: `<g ${line}><ellipse cx="400" cy="200" rx="330" ry="170"/><ellipse cx="400" cy="200" rx="180" ry="100" stroke-dasharray="8 10"/><rect x="372" y="105" width="56" height="190"/><path d="M356 135H444M356 265H444"/></g><circle cx="400" cy="182" r="10" fill="#f2a93b"/>`,
+  tower: `<g stroke="#2b5373" stroke-width="2">${[...Array(11)].map((_,i)=>`<path d="M${i*80} 0V400"/>`).join('')}${[...Array(6)].map((_,i)=>`<path d="M0 ${i*80}H800"/>`).join('')}</g><path d="M0 120H280V280H520V120H800" fill="none" stroke="#7fd0dc" stroke-width="30" opacity=".45"/><g fill="#f2a93b"><rect x="178" y="178" width="44" height="44"/><rect x="378" y="178" width="44" height="44"/><rect x="578" y="178" width="44" height="44"/></g><g ${line}><circle cx="400" cy="200" r="105" stroke-dasharray="6 10"/></g>`
+};
+
+const featured = [
+  {art:'lost', name:'Lost World: Game of Destiny', short:'In development', facts:'AAA title for Steam, in development', text:"The company's largest game: an exploration survival title built around lost relics, with multiple worlds that the player explores to progress.", links:[]},
+  {art:'football', name:'Ultimate Football Champions 3D', short:'Built solo, 1M+ downloads', facts:'Android TV, 1M+ downloads, sole developer', text:'I built the whole game from scratch, including its TV version.', links:[['View on Google Play',P+'androidtv.soccer']]},
+  {art:'racer', name:'Master Racer', short:'TV and phone racing', facts:'Android TV 1M+ downloads, phone 100K+', text:'I built the whole game, an Asphalt-style racer with multiple stages, boost and other gameplay functionality.', links:[['Android TV version',P+'androidtv.superracing'],['Phone version',P+'superracing']]},
+  {art:'cricket', name:'Ultimate Cricket: League Games', short:'Rework in progress', facts:'Ongoing rework', text:'I am currently reworking the game and adding new functionality.', links:[['View on Google Play',P+'cricket']]},
+  {art:'tower', name:'Threnvale', short:'My own tower defense', facts:'Personal project, in progress', text:'A top-down tower defense game that I am currently working on.', links:[]}
+];
+
+const stage = document.getElementById('stage'), slots = document.getElementById('slots');
+function show(i){
+  const g = featured[i];
+  stage.innerHTML = `<svg viewBox="0 0 800 400" role="img" aria-label="Drawing representing ${g.name}">${art[g.art]}</svg><div class="info"><h2>${g.name}</h2><div class="facts">${g.facts}</div><p>${g.text}</p><div class="links">${g.links.map(l=>`<a class="btn" href="${l[1]}">${l[0]}</a>`).join('')}</div></div>`;
+  [...slots.children].forEach((b,n)=>{b.setAttribute('aria-selected', n===i); b.tabIndex = n===i ? 0 : -1});
+}
+featured.forEach((g,i)=>{
+  const b = document.createElement('button');
+  b.type='button'; b.setAttribute('role','tab'); b.innerHTML = `${g.name}<small>${g.short}</small>`;
+  b.onclick = ()=>show(i);
+  b.onkeydown = e=>{
+    const step = {ArrowDown:1,ArrowRight:1,ArrowUp:-1,ArrowLeft:-1}[e.key];
+    if(!step) return;
+    e.preventDefault();
+    const n = (i+step+featured.length)%featured.length; show(n); slots.children[n].focus();
+  };
+  slots.append(b);
+});
+show(0);
+
+/* [studio, name, role or platform, what I did, links] */
+const games = [
+  ['Destiny','Lost World: Game of Destiny','Steam, in development','Working on a AAA exploration survival game built around lost relics, with multiple worlds to explore.',[]],
+  ['Destiny','Ultimate Cricket: League Games','Ongoing rework','Reworking the game and adding new functionality.',[['Google Play',P+'cricket']]],
+  ['Destiny','Ultimate Football Champions 3D','Android TV, sole developer','Built the whole game from scratch, including its TV version.',[['Google Play',P+'androidtv.soccer']]],
+  ['Destiny','Master Racer','Android TV and phone','Built the whole game, with multiple stages, boost and other gameplay functionality.',[['TV version',P+'androidtv.superracing'],['Phone version',P+'superracing']]],
+  ['Destiny','World Sports Games & Athletics','Mobile','Developed the tennis and badminton games and the achievements and tournament systems. Handled basic structure checks and bug fixing.',[['Google Play',P+'worldsports']]],
+  ['Destiny','World Sports Games TV','Android TV','Contributed to optimizing the TV version to prevent crashes on hardware with limited graphics support.',[['Google Play',P+'androidtv.olympics']]],
+  ['Destiny','Dino Hunter: 3D Shooting Game','3D shooter','Responsible for game optimization.',[['Google Play',P+'androidtv.dinohunter']]],
+  ['Juego','The Tower','VR RPG','Built core architecture for player, enemy, companion and boss systems, enemy and companion AI and crowd control, XR integration, cutscenes, narration, quests and NPCs.',[]],
+  ['Juego','Mystic World','RPG','Created hero classes, combat, quests, NPCs, UI and object interaction. Integrated scenes and a weather system.',[]],
+  ['Juego','Mittin','Steam, solo developer','Developed all modules end to end.',[['Steam','https://store.steampowered.com/app/2313630/MITTIN/']]],
+  ['Juego','USP',"Kids' platform",'Built UI, gameplay, API and plugins for an app with 165+ blocks, each a separate mini game.',[]],
+  ['Juego','KidsVerse',"Kids' learning, 3D",'Created gameplay and UI and applied memory optimization.',[]],
+  ['Juego','RainingTrivia','Educational quiz','Delivered API integration, UI and gameplay.',[]],
+  ['Juego','Verse','3D scenes','Set up automated AI battle scenes with NavMesh and splines, plus UI screens from Figma.',[]],
+  ['Juego','Honk and Slide','Match-3','Worked on UI and gameplay.',[]],
+  ['Juego','3D Pool','8-ball with 3D view','Worked on UI, gameplay and bug fixing.',[]],
+  ['Personal','Threnvale','Top-down tower defense, in progress','The game I am currently building on my own time.',[]],
+  ['Personal','Zombie Hunter','3D first person shooter','Find the key while fighting zombies to reach the next level.',[]],
+  ['Personal','Dungeon Master','3D endless runner','Dodge traps and collect coins.',[]],
+  ['Personal','Virtual Gallery','3D walkthrough','A walkable One Piece gallery with rooms for each Yonko crew.',[]],
+  ['Personal','Bomberman','2D arcade','Plant bombs to clear every enemy.',[]],
+  ['Personal','BreakOut3D','3D brick breaker','One of my early Unity projects: break the tiles to move on to the next level.',[['Watch the video',WIX+'gamingportfolio']]],
+  ['Personal','Car Brawlers','Personal project','Gameplay video in my personal video gallery.',[['Watch the video',WIX+'gamingportfolio']]],
+  ['Personal','Cube Runner','3D runner','Collect red cubes while avoiding obstacles.',[]],
+  ['Personal','Snake and Brick Breaker','Java','Two classic arcade games.',[]],
+  ['Personal','Quiz Game','C++','Multiple choice questions with points and grades.',[]]
+];
+const list = document.getElementById('list'), filters = document.getElementById('filters');
+function draw(key){
+  list.innerHTML = games.filter(g=>key==='All'||g[0]===key).map(g=>`<li><div><h3>${g[1]}</h3><span>${g[2]}</span></div><p>${g[3]} ${g[4].map(l=>`<a href="${l[1]}">${l[0]}</a>`).join('')}</p></li>`).join('');
+  [...filters.children].forEach(b=>b.setAttribute('aria-pressed', b.dataset.key===key));
+}
+[['All','All'],['Destiny','Destiny Interactive'],['Juego','Juego Studios'],['Personal','Personal']].forEach(([key,label])=>{
+  const b = document.createElement('button'); b.type='button'; b.dataset.key=key; b.textContent=label; b.onclick=()=>draw(key); filters.append(b);
+});
+draw('All');
+
+const cover = id => `https://static.wixstatic.com/media/${id}f002.jpg`;
+const videos = [
+  ['The Tower','Client project: a VR RPG based on books published by the client.','00df22_482d8b6ba8074d10a626b7959b4509b5','copy-of-portfolio'],
+  ['Zombie Hunter','First person shooter.','00df22_e8c7c0871ea1454da9dc32e87e2cc0da','gamingportfolio'],
+  ['Dungeon Master','Endless runner.','00df22_140959d164af45158ee4098d458da350','gamingportfolio'],
+  ['Virtual Gallery','Walkable One Piece gallery.','00df22_b9b95471f48a462eba4b6ab0aeb276df','gamingportfolio'],
+  ['BreakOut3D','3D brick breaker, one of my early Unity projects.','00df22_b5f386e242fd4459b5bf7cea3ba4d61d','gamingportfolio'],
+  ['Car Brawlers','Personal project.','00df22_5e08be1b3f8143639eb64991714381c6','gamingportfolio'],
+  ['Bomberman','Classic 2D arcade game.','00df22_132e4aa76a534b49a4332d66b6b66850','gamingportfolio']
+];
+document.getElementById('videolist').innerHTML = videos.map(v=>`<figure><a href="${WIX+v[3]}" aria-label="Watch ${v[0]}"><img src="${cover(v[2])}" alt="Screenshot from ${v[0]}" loading="lazy"></a><figcaption><h3>${v[0]}</h3><p>${v[1]}</p></figcaption></figure>`).join('');
+</script>
+</body>
+</html>
