@@ -159,7 +159,7 @@ footer a:not(.btn){color:#fff}
   section{padding:68px 0}
   .hero::after{background:linear-gradient(0deg,var(--bg) 12%,rgba(8,12,30,.86) 62%,rgba(8,12,30,.35))}
   .note{right:12px;top:76px}
-  .now{min-height:270px}
+  .now{min-height:390px}
   .bg div{background-position:72% center}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
@@ -200,6 +200,9 @@ dialog.portrait .big{aspect-ratio:auto;height:min(68vh,707px)}
 .picker button[aria-pressed=true]{border-color:var(--gold);opacity:1}
 .feature.tower .picker img{width:100%;aspect-ratio:16/9;object-fit:cover;box-shadow:none}
 .feature.tower .visual>img{aspect-ratio:16/9;object-fit:cover}
+.feature h4,dialog h4{font:700 21px/1.2 'Barlow Condensed',Bahnschrift,sans-serif;color:var(--gold);margin-top:20px}
+.feature .points,dialog .points{margin:8px 0 0 20px}
+.tech{margin-top:14px;color:var(--soft)}
 </style>
 </head>
 <body>
@@ -339,13 +342,13 @@ const pics = k => k==='tower' ? TOWER_SHOTS : ART[k] ? [ART[k]] : S[k].map(id=>s
 
 /* Destiny games: [art, name, short, facts, text, links, layout, badge] */
 const destiny = [
-  ['lost','Lost World: Game of Destiny','In development','AAA title for Steam, in development',"The company's largest game: exploration survival built around lost relics, across underwater, forest and space worlds.",[],'full','In development'],
-  ['football','Ultimate Football Champions 3D','Sole developer','Android TV, 1M+ downloads, sole developer','I built the whole game from scratch, including its TV version.',[['Google Play',P+'androidtv.soccer'],['Amazon Fire TV','https://www.amazon.in/dp/B0FN9TVJLV']],'wide','1M+ downloads'],
-  ['racer','Master Racer','Built the whole game','Android TV 1M+ downloads, phone 100K+','I built the whole game, an Asphalt-style racer with multiple stages, boost and other gameplay functionality.',[['Android TV',P+'androidtv.superracing'],['Phone',P+'superracing'],['Fire TV','https://www.amazon.in/dp/B0G7C6XXZ6']],'wide','1M+ downloads'],
-  ['cricket','Ultimate Cricket: League Games','Rework in progress','Ongoing rework','I am currently reworking the game and adding new functionality.',[['View on Google Play',P+'cricket']],'','Rework in progress'],
-  ['sports','World Sports Games & Athletics','Tennis, badminton, tournaments','Mobile','I developed the tennis and badminton games and the achievements and tournament systems, and handled basic structure checks and bug fixing.',[['View on Google Play',P+'worldsports']],'',''],
-  ['sportstv','World Sports Games TV','TV optimization','Android TV','I contributed to optimizing the TV version to prevent crashes on hardware with limited graphics support.',[['View on Google Play',P+'androidtv.olympics']],'',''],
-  ['dino','Dino Hunter: 3D Shooting Game','Game optimization','3D shooter','I was responsible for game optimization.',[['View on Google Play',P+'androidtv.dinohunter']],'full','']
+  ['lost','Lost World: Game of Destiny','In development','AAA title for Steam, in development',"The studio's largest title: a AAA exploration-survival game spanning underwater, forest and space environments.",[],'full','In development'],
+  ['football','Ultimate Football Champions 3D','Sole developer','Android TV, 1M+ downloads, sole developer',"A 3D football game built from the ground up as sole developer, with full match play, penalties, tournaments, club management and TV controls.",[['Google Play',P+'androidtv.soccer'],['Amazon Fire TV','https://www.amazon.in/dp/B0FN9TVJLV']],'wide','1M+ downloads'],
+  ['racer','Master Racer','Sole developer','Android TV 1M+ downloads, phone 100K+, sole developer',"An arcade racing game for phone and TV, built from the ground up as sole developer, with drift, nitro, multiple modes and a full garage.",[['Android TV',P+'androidtv.superracing'],['Phone',P+'superracing'],['Fire TV','https://www.amazon.in/dp/B0G7C6XXZ6']],'wide','1M+ downloads'],
+  ['cricket','Ultimate Cricket: League Games','Live title, in rework','Ongoing rework',"A ground-up rework of a live mobile cricket title, adding tournaments, team customization, stats, achievements and leaderboards.",[['View on Google Play',P+'cricket']],'','In active development'],
+  ['sports','World Sports Games & Athletics','Tennis, badminton, tournaments','Mobile',"A multi-sport collection where I built tennis and badminton from scratch, plus the achievement and tournament systems used across all its games.",[['View on Google Play',P+'worldsports']],'',''],
+  ['sportstv','World Sports Games TV','TV performance optimization','Android TV',"The Android TV edition of World Sports Games, where I contributed to porting, TV controls and performance optimization.",[['View on Google Play',P+'androidtv.olympics']],'',''],
+  ['dino','Dino Hunter: 3D Shooting Game','Performance optimization','3D shooter',"A 3D dinosaur shooting game, where my responsibility was performance optimization across rendering, memory and stability.",[['View on Google Play',P+'androidtv.dinohunter']],'full','']
 ];
 const linkRow = links => links.map((l,i)=>`<a class="btn${i?' ghost':''}" href="${l[1]}">${l[0]}</a>`).join('');
 
@@ -353,27 +356,151 @@ const DETAILS = {
  "lost": {
   "name": "Lost World: Game of Destiny",
   "status": "AAA title for Steam, in development",
-  "intro": "Lost relics, three worlds and one way forward: survive. Lost World is an exploration survival game, and the largest game our company is making. It takes you beneath the water, into the forest and finally out into space, and every world asks something different of you.",
-  "points": [
-   "Underwater world: explore and survive beneath the surface",
-   "Forest world: a different test of survival among the trees",
-   "Space world: the last of the three",
-   "Each world brings its own survival and exploration experience",
-   "Progress through each world to move your journey forward"
+  "intro": "Lost World: Game of Destiny is a AAA exploration-survival game in development for Steam, and the studio's largest title. Centered on lost relics, it takes players across underwater, forest and space environments, each designed to deliver a distinct survival and exploration experience.",
+  "groups": [
+   [
+    "Game features",
+    [
+     "Three distinct environments: underwater, forest and space",
+     "Unique survival and exploration experience in each world",
+     "World-by-world progression, culminating in space"
+    ]
+   ],
+   [
+    "My role",
+    [
+     "Managing the entire development team",
+     "Building ECS-based game architecture and AAA-level systems",
+     "Designing scalable structures for use across multiple environments",
+     "Implementing new features",
+     "Performance and lighting optimization"
+    ]
+   ]
   ]
  },
  "tower": {
   "name": "Threnvale",
   "status": "My own tower defense game, in development",
-  "intro": "The enemy arrives in waves, and the map is yours to defend. Threnvale is a classic top-down tower defense game with a story that unfolds while you play: hold your ground, push further and open the next chapter.",
-  "points": [
-   "Place towers on the map to confront each wave of enemies",
-   "A story that runs alongside the gameplay",
-   "Move through the chapters as you progress"
+  "intro": "Threnvale is a top-down tower defense game currently in development. It pairs classic strategic gameplay with a story that unfolds chapter by chapter, as players place towers to defend the map against waves of enemies.",
+  "groups": [
+   [
+    "Key features",
+    [
+     "Story-driven, chapter-based progression",
+     "Multiple tower types with upgrades and selling",
+     "Selectable targeting modes",
+     "Meteor and Dawn special abilities",
+     "Gold-based economy and wave countdown",
+     "Snow, autumn forest and swamp environments",
+     "Game speed control and pause"
+    ]
+   ]
   ]
  }
 };
-const points = d => `<ul class="points">${d.points.map(p=>`<li>${p}</li>`).join('')}</ul>`;
+const POPUPS = {
+ "football": {
+  "intro": "Ultimate Football Champions 3D is a complete football experience that I developed from the ground up as its sole developer, covering match gameplay, competitions, club management and the TV release.",
+  "groups": [
+   [
+    "Key features",
+    [
+     "Match AI, goalkeeper behavior, ball physics and animations",
+     "Penalty feature",
+     "2, 6 and 20-minute match modes",
+     "Leagues and knockout tournaments",
+     "Club management with training facilities and coaches",
+     "Player scouting, formations and squad rotation",
+     "Online clubs and global leaderboards",
+     "TV remote and gamepad support"
+    ]
+   ]
+  ],
+  "note": "Technical work: architecture and optimization"
+ },
+ "racer": {
+  "intro": "Master Racer is a complete arcade racing game that I developed from the ground up as its sole developer, covering driving gameplay, game modes, progression and releases for phone and TV.",
+  "groups": [
+   [
+    "Key features",
+    [
+     "Car physics, drift and nitro boost",
+     "AI opponents, traffic system and camera",
+     "Classic, elimination and versus modes",
+     "Multi-stage progression",
+     "Neon city, coastal highway and off-road environments",
+     "Garage with car collection, engine tuning and performance upgrades",
+     "Paint, rim, spoiler and car skin customization",
+     "Daily login rewards, seasonal missions and offline play",
+     "TV remote and gamepad support"
+    ]
+   ]
+  ],
+  "note": "Technical work: architecture and optimization"
+ },
+ "cricket": {
+  "intro": "Ultimate Cricket: League Games is being rebuilt from the ground up, with new gameplay mechanics and deeper progression and competitive systems.",
+  "groups": [
+   [
+    "Key features in development",
+    [
+     "Tournament system",
+     "New gameplay mechanics",
+     "Team customization",
+     "Player and team stat system",
+     "Achievements and leaderboards"
+    ]
+   ]
+  ]
+ },
+ "sports": {
+  "intro": "World Sports Games & Athletics brings multiple sports together in one title. I developed its tennis and badminton games from scratch and built the achievement and tournament systems shared across the whole collection.",
+  "groups": [
+   [
+    "My contribution",
+    [
+     "Tennis and badminton games, developed from scratch",
+     "Achievement system across all games",
+     "Tournament system across all games",
+     "Code structure review and bug fixing"
+    ]
+   ]
+  ]
+ },
+ "sportstv": {
+  "intro": "World Sports Games TV brings the multi-sport collection to Android TV. I contributed to its port and to the optimization work needed to run it on hardware with limited graphics capability.",
+  "groups": [
+   [
+    "My contribution",
+    [
+     "Porting the mobile game to TV",
+     "Remote and gamepad controls",
+     "Texture and memory optimization",
+     "Draw call reduction and batching",
+     "Lighting and shadow optimization",
+     "Model, shader and level-of-detail optimization",
+     "Profiling and crash fixing"
+    ]
+   ]
+  ]
+ },
+ "dino": {
+  "intro": "Dino Hunter is a 3D dinosaur shooting game. My responsibility on it was performance optimization.",
+  "groups": [
+   [
+    "Optimization work",
+    [
+     "Texture and memory optimization",
+     "Draw call reduction and batching",
+     "Lighting and shadow optimization",
+     "Model, shader and level-of-detail optimization",
+     "Profiling, frame rate improvement and crash fixing"
+    ]
+   ]
+  ]
+ }
+};
+const points = d => d.groups.map(g=>`<h4>${g[0]}</h4><ul class="points">${g[1].map(p=>`<li>${p}</li>`).join('')}</ul>`).join('') + (d.note?`<p class="tech">${d.note}</p>`:'');
 document.getElementById('features').innerHTML = Object.entries(DETAILS).map(([k,d])=>`<article class="feature ${k}"><div class="visual"><img src="${ART[k]}" alt="${k==='lost'?'Key art for':'Gameplay screenshot of'} ${d.name}">${CONCEPT[k]?'<em class="concept">Concept art</em>':''}</div><div><h3>${d.name}</h3><p class="status">${d.status}</p><p>${d.intro}</p>${points(d)}</div></article>`).join('');
 
 /* Threnvale screenshot picker */
@@ -385,7 +512,7 @@ towerBox.querySelectorAll('.picker button').forEach((b,i,all)=>b.onclick=()=>{to
 const modal = document.getElementById('modal');
 function open_(g){
   const p = pics(g[0]);
-  modal.innerHTML = `<button class="close" aria-label="Close">×</button><img class="big" src="${p[0]}" alt="${CONCEPT[g[0]]?'Concept illustration for':g[0]==='lost'?'Key art for':'Store screenshot of'} ${g[1]}">${p.length>1?`<div class="thumbs">${p.map((u,i)=>`<button aria-label="Screenshot ${i+1}" aria-pressed="${!i}"><img src="${u}" alt=""></button>`).join('')}</div>`:''}<div class="body"><h3 id="mtitle">${g[1]}</h3><p style="color:var(--cyan);font-weight:600">${g[3]}</p><p>${DETAILS[g[0]]?DETAILS[g[0]].intro:g[4]}</p>${DETAILS[g[0]]?points(DETAILS[g[0]]):''}${CONCEPT[g[0]]?'<p style="color:var(--soft);font-size:14px;margin-top:10px">Concept illustration, not game footage.</p>':''}<div class="links">${linkRow(g[5])}</div></div>`;
+  modal.innerHTML = `<button class="close" aria-label="Close">×</button><img class="big" src="${p[0]}" alt="${CONCEPT[g[0]]?'Concept illustration for':g[0]==='lost'?'Key art for':'Store screenshot of'} ${g[1]}">${p.length>1?`<div class="thumbs">${p.map((u,i)=>`<button aria-label="Screenshot ${i+1}" aria-pressed="${!i}"><img src="${u}" alt=""></button>`).join('')}</div>`:''}<div class="body"><h3 id="mtitle">${g[1]}</h3><p style="color:var(--cyan);font-weight:600">${g[3]}</p><p>${(DETAILS[g[0]]||POPUPS[g[0]]).intro}</p>${points(DETAILS[g[0]]||POPUPS[g[0]])}${CONCEPT[g[0]]?'<p style="color:var(--soft);font-size:14px;margin-top:10px">Concept illustration, not game footage.</p>':''}<div class="links">${linkRow(g[5])}</div></div>`;
   modal.classList.toggle('portrait', g[0]==='lost');
   modal.querySelector('.close').onclick = ()=>modal.close();
   modal.querySelectorAll('.thumbs button').forEach((b,i)=>b.onclick=()=>{modal.querySelector('.big').src=p[i]; modal.querySelectorAll('.thumbs button').forEach(o=>o.setAttribute('aria-pressed',o===b))});
@@ -400,7 +527,7 @@ destiny.filter(g=>g[0]!=='lost').forEach(g=>{ /* Lost World has its own feature 
 
 /* hero launcher */
 const featured = [destiny[1],destiny[2],destiny[0],destiny[3],destiny[4],
-  ['tower','Threnvale','My own tower defense','Personal project, in progress','A classic top-down tower defense game with a story told in chapters. Place towers to hold off enemy waves.',[]]];
+  ['tower','Threnvale','My own tower defense','Personal project, in progress',"A story-driven, top-down tower defense game with upgradeable towers, special abilities and distinct snow, forest and swamp maps.",[]]];
 const bg = document.getElementById('bg'), rail = document.getElementById('rail'), now = document.getElementById('now'), hero = document.getElementById('top');
 let cur = 0, timer;
 function show(i){
@@ -441,7 +568,7 @@ const games = [
   ['Juego','Verse','3D scenes','Set up automated AI battle scenes with NavMesh and splines, plus UI screens from Figma.',[]],
   ['Juego','Honk and Slide','Match-3','Worked on UI and gameplay.',[]],
   ['Juego','3D Pool','8-ball with 3D view','Worked on UI, gameplay and bug fixing.',[]],
-  ['Personal','Threnvale','Top-down tower defense, in progress','Classic tower defense with a chapter story: place towers to hold off enemy waves.',[]],
+  ['Personal','Threnvale','Top-down tower defense, in progress','A story-driven, top-down tower defense game with upgradeable towers, special abilities and distinct snow, forest and swamp maps.',[]],
   ['Personal','Zombie Hunter','3D first person shooter','Find the key while fighting zombies to reach the next level.',[]],
   ['Personal','Dungeon Master','3D endless runner','Dodge traps and collect coins.',[]],
   ['Personal','Virtual Gallery','3D walkthrough','A walkable One Piece gallery with rooms for each Yonko crew.',[]],
@@ -495,7 +622,7 @@ document.getElementById('videolist').innerHTML = videos.map(v=>`<a href="${WIX+v
   + `<a href="${WIX}gamingportfolio" style="display:grid;place-content:center;text-align:center;background:linear-gradient(135deg,#3b2bb5,#0e9aa7)"><b>Open the full video gallery</b></a>`;
 
 const skills = [
-  ['Game development','#ffb627',['Unity','XR/VR (Meta Quest)','Gameplay and AI systems','NavMesh','Timeline','Cinemachine','UI','API integration','Performance and memory optimization']],
+  ['Game development','#ffb627',['Unity','XR/VR (Meta Quest)','Gameplay and AI systems','NavMesh','Timeline','Cinemachine','UI','API integration','Performance and memory optimization','ECS (Entity Component System)','Lighting optimization']],
   ['Platforms and languages','#3fe0ee',['Android','Android TV','iOS','Steam','Meta Quest','C#','C++','Java','Python','HTML']],
   ['AI','#ff5c8a',['Familiar: Claude','Familiar: Gemini','Familiar: ChatGPT','Deep knowledge: skills','Plugins','Connectors','Artifacts']],
   ['Tools','#8b7bff',['Visual Studio','VS Code','Rider','Figma','Miro','Jira','Trello','Postman','GitHub','GitLab','Bitbucket']],
